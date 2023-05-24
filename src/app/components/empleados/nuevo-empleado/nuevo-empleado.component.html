@@ -1,0 +1,73 @@
+<div class="col-md-6 offset-md-3">
+  <h2>Nuevo empleado</h2>
+  <div class="d-flex flex-column">
+    <form [formGroup]="empleadoForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Nombre:</label>
+        <input
+          type="text"
+          class="form-control"
+          #nombre
+          formControlName="nombre"
+        />
+        <div
+          class="alert alert-danger mt-1"
+          *ngIf="
+            empleadoForm.get('nombre')!.invalid &&
+            (empleadoForm.get('nombre')!.dirty ||
+              empleadoForm.get('nombre')!.touched)
+          "
+        >
+          <span *ngIf="empleadoForm.get('nombre')?.hasError('required')">
+            Nombre requerido</span
+          >
+          <span *ngIf="empleadoForm.get('nombre')?.hasError('minlength')"
+            >Escriba mínimo 3 caracteres</span
+          >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Apellido:</label>
+        <input type="text" class="form-control" formControlName="apellido" />
+        <div
+          class="alert alert-danger mt-2"
+          *ngIf="
+            empleadoForm.get('apellido')!.invalid &&
+            (empleadoForm.get('apellido')!.dirty ||
+              empleadoForm.get('apellido')!.touched)
+          "
+        >
+          <span *ngIf="empleadoForm.get('apellido')?.hasError('required')">
+            Apellido requerido</span
+          >
+          <span *ngIf="empleadoForm.get('apellido')?.hasError('minlength')"
+            >Escriba mínimo 3 caracteres</span
+          >
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="text" class="form-control" formControlName="email" />
+        <div
+          class="alert alert-danger mt-2"
+          *ngIf="
+            empleadoForm.get('email')!.invalid &&
+            (empleadoForm.get('email')!.dirty ||
+              empleadoForm.get('email')!.touched)
+          "
+        >
+          <span *ngIf="empleadoForm.get('email')?.hasError('required')">
+            Email requerido</span
+          >
+          <span *ngIf="empleadoForm.get('email')?.hasError('email')"
+            >Escriba un email correcto, ejemplo: pepito@mail.com</span
+          >
+        </div>
+      </div>
+
+      <button class="btn btn-success mt-2" type="submit">Guardar</button>
+    </form>
+  </div>
+</div>
