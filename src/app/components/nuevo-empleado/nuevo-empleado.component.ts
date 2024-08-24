@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Empleado } from 'src/app/models/empleado';
 import { EmpleadoService } from 'src/app/services/empleado.service';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-nuevo-empleado',
@@ -52,13 +51,13 @@ export class NuevoEmpleadoComponent implements OnInit {
   guardarEmpleado() {
     this.empleadoService.registrarEmpleado(this.empleadoForm.value).subscribe(
       (data) => {
-        Swal.fire({
+      /*   Swal.fire({
           position: 'center',
           icon: 'success',
           title: 'Empleado guardado',
           showConfirmButton: false,
           timer: 1500
-        });
+        }); */
 
         this.router.navigate(['/empleados']);
       },
@@ -69,13 +68,13 @@ export class NuevoEmpleadoComponent implements OnInit {
   actualizarEmpleado(){
     this.empleadoService.actualizarEmpleado(this.idEmpleado,this.empleadoForm.value).subscribe(
       (data) => {
-        Swal.fire({
+     /*    Swal.fire({
           position: 'center',
           icon: 'success',
           title: 'Empleado actualizado',
           showConfirmButton: false,
           timer: 1500
-        });
+        }); */
 
         this.router.navigate(['/empleados']);
       },

@@ -3,10 +3,10 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router'
 
-import { Empleado } from '../../../models/empleado';
-import { EmpleadoService } from '../../../services/empleado.service';
-import Swal from 'sweetalert2';
-
+import { Empleado } from '../../models/empleado';
+import { EmpleadoService } from '../../services/empleado.service';
+/* import Swal from 'sweetalert2';
+ */
 
 @Component({
   selector: 'app-lista-empleados',
@@ -46,7 +46,7 @@ export class ListaEmpleadosComponent implements OnInit {
       this.obtenerEmpleados();
     }) */
 
-    Swal.fire({
+    /* Swal.fire({
       title: 'Esta seguro de eliminar el empleado?',
       icon: 'warning',
       showCancelButton: true,
@@ -55,21 +55,21 @@ export class ListaEmpleadosComponent implements OnInit {
     }).then((result) => {
       if (result.value) {
 
-        this.empleadoService.eliminarEmpleado(idEmpleado).subscribe(data=>{
-          Swal.fire({
+        this.empleadoService.eliminarEmpleado(idEmpleado).subscribe(data=>{ */
+        /*   Swal.fire({
             position: 'center',
             icon: 'success',
             title: 'Borrado',
             showConfirmButton: false,
             timer: 1500
-          });
+          }); */
   
-          this.obtenerEmpleados();
+          /* this.obtenerEmpleados();
         })
         
       } else if (result.dismiss === Swal.DismissReason.cancel) {
        
       }
-    })
+    }) */
   }
 }
