@@ -1,4 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+
+
+    /* Estilos para el contenedor del diálogo */
+.mat-dialog-container {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Título del diálogo */
+  .mat-dialog-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 15px;
+  }
+  
+  /* Contenido del diálogo */
+  .mat-dialog-content {
+    font-size: 16px;
+    color: #555555;
+    margin-bottom: 20px;
+  }
+  
+  /* Acciones (botones) en el diálogo */
+  .mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  /* Botón de cancelar */
+  .mat-dialog-actions button:first-child {
+    color: #757575;
+  }
+  
+  /* Botón de confirmación (Eliminar) */
+  .mat-dialog-actions button:last-child {
+    background-color: #d32f2f;
+    color: white;
+  }
+  
+  .mat-dialog-actions button:last-child:hover {
+    background-color: #c62828;
+  }
+  /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

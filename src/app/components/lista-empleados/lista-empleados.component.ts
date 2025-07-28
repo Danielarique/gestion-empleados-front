@@ -5,6 +5,8 @@ import { Router } from '@angular/router'
 
 import { Empleado } from '../../models/empleado';
 import { EmpleadoService } from '../../services/empleado.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmacionComponent } from '../confirmacion/confirmacion.component';
 /* import Swal from 'sweetalert2';
  */
 
@@ -19,7 +21,9 @@ export class ListaEmpleadosComponent implements OnInit {
   empleados:Empleado[] = [];
   dataSource = new MatTableDataSource<Empleado>(this.empleados);
   columns: string[] = ['nombre', 'apellido', 'email', 'acciones'];
-  constructor(private empleadoService: EmpleadoService, private router: Router){}
+  constructor(private empleadoService: EmpleadoService, private router: Router,
+    public dialog: MatDialog
+  ){}
   ngOnInit(): void {
     this.obtenerEmpleados();
   }
@@ -42,6 +46,21 @@ export class ListaEmpleadosComponent implements OnInit {
   }
 
   eliminarEmpleado(idEmpleado:number){
+    const dialogRef = this.dialog.open(ConfirmacionComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.empleadoService.eliminarEmpleado(idEmpleado).subscribe(data=>{ 
+          console.log("eliminado")
+          this.obtenerEmpleados();
+
+        })
+      } else {
+        // Acción cancelada
+        console.log("cancelar")
+        
+      }
+    })
   /*   this.empleadoService.eliminarEmpleado(idEmpleado).subscribe(data=>{
       this.obtenerEmpleados();
     }) */
