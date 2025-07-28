@@ -10,7 +10,7 @@ export class EmpleadoService {
   
   //private baseUrl = "http://localhost:8080/api/v1/empleados";
   private baseUrl = environment.API_URL;
-
+  private jsonUrl = 'assets/empleados.json';
   constructor(private http: HttpClient){}
   
 
@@ -19,7 +19,9 @@ export class EmpleadoService {
    * @returns 
    */
   obtenerListaEmpleados():Observable<Empleado[]>{
-    return this.http.get<Empleado[]>(`${this.baseUrl}/api/v1/empleados`)
+    //return this.http.get<Empleado[]>(`${this.baseUrl}/api/v1/empleados`)
+    return this.http.get<Empleado[]>(this.jsonUrl);
+
   }
   
   /**
